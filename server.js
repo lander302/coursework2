@@ -5,7 +5,7 @@ var startTime;
 var host;
 
 var handleRequest = function(request, response) {
-  response.setHeader('Content-Type', 'text/plain)
+  response.setHeader('Content-Type', 'text/plain');
   response.writeHead(200);
   response.write("DevOps Coursework 2! | Running on: ");
   response.write(host);
