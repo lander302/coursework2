@@ -44,8 +44,9 @@ pipeline {
 			steps {
 				sshagent(['jenkins-k8s-ssh-key']) {
 					sh ''' 
-						ssh ubuntu@ec2-54-167-153-197.compute-1.amazonaws.com
-						ansible-playbook /home/ubuntu/ansible/deployToKubernetes.yml --extra-vars "dockerhub_image=lander302/cw2-server:1.0"
+						ssh -o StrictHostKeyChecking=no ubuntu@ec2-54-167-153-197.compute-1.amazonaws.com \
+						"export PATH=$PATH:/usr/bin && ansible-playbook /home/ubuntu/ansible/deployToKubernetes.yml --extra-vars 'dockerhub_image=lander302/cw2-server:1.0'"
+					'''	
 				}
 			}		
 		}
