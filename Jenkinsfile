@@ -1,6 +1,6 @@
 // jenkinsfile for pipeline
 
-pipieline {
+pipeline {
 	agent any
 	environment {
 		DOCKERHUB_CRED = credentials('docker') 
