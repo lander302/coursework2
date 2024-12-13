@@ -40,12 +40,11 @@ pipeline {
 			}
 		}
 		
-//		stage('Deploy') {
-//			steps {
-//				sshagent(['jenkins-k8s-ssh-key']) {
-//					sh 'ssh ubuntu@'ec2-54-167-153-197.compute-1.amazonaws.com' "ansible-playbook /home/ubuntu/deployToKubernetes.yml --extra-vars 'dockerhub_image=lander302/cw2-server:1.0'"'
-//				}
-//			}
-//		}
+		stage('Deploy') {
+			steps {
+				sshagent(['jenkins-k8s-ssh-key']) {
+					sh 'ssh ubuntu@'ec2-54-167-153-197.compute-1.amazonaws.com' "ansible-playbook /home/ubuntu/deployToKubernetes.yml --extra-vars 'dockerhub_image=lander302/cw2-server:1.0'"'
+				}
+			}		}
 	}
 }
